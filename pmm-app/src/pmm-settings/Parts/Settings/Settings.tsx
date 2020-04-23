@@ -233,7 +233,7 @@ const SettingsPart = props => {
                         text="Option to send usage data back to Percona to let us make product better"
                       />
                     }
-                    element={<ToggleField form={form} name="telemetry_enabled" />}
+                    element={<ToggleField form={form} name="telemetry_enabled" defaultChecked={true} />}
                   />
                   <FormElement
                     label="Check for updates"
@@ -251,7 +251,30 @@ const SettingsPart = props => {
                         text="Option to check new versions and ability to update PMM from UI"
                       />
                     }
-                    element={<ToggleField form={form} name="updates_disabled" disabled={true} />}
+                    element={
+                      <ToggleField
+                        form={form}
+                        name="updates_disabled"
+                        disabled={true}
+                        defaultChecked={true}
+                      />
+                    }
+                  />
+                  <FormElement
+                    label="Security Threat Tool"
+                    type="horizontal"
+                    tooltip={
+                      <PluginTooltip
+                        links={[
+                          {
+                            url: 'https://www.percona.com/doc/percona-monitoring-and-management/',
+                            text: 'Read more',
+                          },
+                        ]}
+                        text="Security Threat Tool"
+                      />
+                    }
+                    element={<ToggleField form={form} name="stt_enabled" />}
                   />
                 </Panel>
               </Collapse>
